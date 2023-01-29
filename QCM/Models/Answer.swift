@@ -9,7 +9,7 @@ import Foundation
 
 struct Answer {
     let id: UInt!
-    let choices: [Choice]
+    let choices: Set<UInt>
 }
 
-extension Answer: Decodable { }
+extension Answer: Codable { }

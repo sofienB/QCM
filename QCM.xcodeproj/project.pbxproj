@@ -29,6 +29,7 @@
 		4C18BD4529867B5B00209657 /* QuestionsProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C18BD4429867B5B00209657 /* QuestionsProtocol.swift */; };
 		4C18BD4829867FAD00209657 /* Array+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C18BD4729867FAD00209657 /* Array+Extension.swift */; };
 		4C18BD4B2986A40700209657 /* Sort.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C18BD4A2986A40700209657 /* Sort.swift */; };
+		4C18BD4D2986C02000209657 /* Data+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C18BD4C2986C02000209657 /* Data+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +75,7 @@
 		4C18BD4429867B5B00209657 /* QuestionsProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionsProtocol.swift; sourceTree = "<group>"; };
 		4C18BD4729867FAD00209657 /* Array+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Extension.swift"; sourceTree = "<group>"; };
 		4C18BD4A2986A40700209657 /* Sort.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sort.swift; sourceTree = "<group>"; };
+		4C18BD4C2986C02000209657 /* Data+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -200,6 +202,7 @@
 			isa = PBXGroup;
 			children = (
 				4C18BD4729867FAD00209657 /* Array+Extension.swift */,
+				4C18BD4C2986C02000209657 /* Data+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -346,6 +349,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4C18BD332985DB5200209657 /* Choice.swift in Sources */,
+				4C18BD4D2986C02000209657 /* Data+Extension.swift in Sources */,
 				4C18BD3129848A1400209657 /* Question.swift in Sources */,
 				4C18BD4329867B4200209657 /* LoadingState.swift in Sources */,
 				4C18BD4829867FAD00209657 /* Array+Extension.swift in Sources */,

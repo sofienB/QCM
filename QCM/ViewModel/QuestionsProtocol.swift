@@ -7,6 +7,6 @@
 
 import Foundation
 
-protocol QuestionsProtocol {
+protocol QuestionsProtocol : AnyObject {
     func didUpdate(state: LoadingState)
 }
