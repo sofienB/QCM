@@ -9,7 +9,7 @@ import Foundation
 
 class Questions {
     // Properties
-    private(set) var questions = [Question]()
+    private var questions = [Question]()
     private var iterator: Int = 0
 
     private var answers = [Answer](){
@@ -70,3 +70,17 @@ class Questions {
         return isFinished ? nil : questions[iterator]
     }
 }
+
+#if DEBUG
+
+extension Questions {
+    func add(questions: [Question]) {
+        self.questions = questions
+    }
+    
+    var questionsSetted: [Question] {
+        get { questions }
+    }
+}
+
+#endif

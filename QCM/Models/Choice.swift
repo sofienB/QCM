@@ -7,10 +7,10 @@
 
 import Foundation
 
-struct Choice {
+struct Choice: Sort {
     let id: UInt!
     let name: String!
-    let order: UInt8!
+    var order: UInt8!
     let description: String?
 }
 

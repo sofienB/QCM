@@ -7,10 +7,11 @@
 
 import Foundation
 
-struct Question {
+struct Question : Sort {
+    
     let id: UInt!
     let name: String!
-    let order: UInt8!
+    var order: UInt8!
     let choices: [Choice]!
     let question: String!
     let multiple: Bool!
