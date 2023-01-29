@@ -17,6 +17,16 @@
 		4C18BD162984881300209657 /* QCMTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C18BD152984881300209657 /* QCMTests.swift */; };
 		4C18BD202984881300209657 /* QCMUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C18BD1F2984881300209657 /* QCMUITests.swift */; };
 		4C18BD222984881300209657 /* QCMUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C18BD212984881300209657 /* QCMUITestsLaunchTests.swift */; };
+		4C18BD3129848A1400209657 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C18BD3029848A1400209657 /* Question.swift */; };
+		4C18BD332985DB5200209657 /* Choice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C18BD322985DB5200209657 /* Choice.swift */; };
+		4C18BD352985DB6900209657 /* Answer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C18BD342985DB6900209657 /* Answer.swift */; };
+		4C18BD382985DB9300209657 /* Questions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C18BD372985DB9300209657 /* Questions.swift */; };
+		4C18BD3B2985DEA100209657 /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C18BD3A2985DEA100209657 /* Networking.swift */; };
+		4C18BD3F2985E91100209657 /* QuestionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C18BD3E2985E91100209657 /* QuestionsTests.swift */; };
+		4C18BD402985FE9600209657 /* data.json in Resources */ = {isa = PBXBuildFile; fileRef = 4C18BD3D2985E5C400209657 /* data.json */; };
+		4C18BD412985FE9900209657 /* data.json in Resources */ = {isa = PBXBuildFile; fileRef = 4C18BD3D2985E5C400209657 /* data.json */; };
+		4C18BD4329867B4200209657 /* LoadingState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C18BD4229867B4200209657 /* LoadingState.swift */; };
+		4C18BD4529867B5B00209657 /* QuestionsProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C18BD4429867B5B00209657 /* QuestionsProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +61,15 @@
 		4C18BD1B2984881300209657 /* QCMUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QCMUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C18BD1F2984881300209657 /* QCMUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QCMUITests.swift; sourceTree = "<group>"; };
 		4C18BD212984881300209657 /* QCMUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QCMUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		4C18BD3029848A1400209657 /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
+		4C18BD322985DB5200209657 /* Choice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Choice.swift; sourceTree = "<group>"; };
+		4C18BD342985DB6900209657 /* Answer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Answer.swift; sourceTree = "<group>"; };
+		4C18BD372985DB9300209657 /* Questions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Questions.swift; sourceTree = "<group>"; };
+		4C18BD3A2985DEA100209657 /* Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
+		4C18BD3D2985E5C400209657 /* data.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = data.json; sourceTree = "<group>"; };
+		4C18BD3E2985E91100209657 /* QuestionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionsTests.swift; sourceTree = "<group>"; };
+		4C18BD4229867B4200209657 /* LoadingState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingState.swift; sourceTree = "<group>"; };
+		4C18BD4429867B5B00209657 /* QuestionsProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionsProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +120,10 @@
 		4C18BCFA2984881200209657 /* QCM */ = {
 			isa = PBXGroup;
 			children = (
+				4C18BD3C2985E5B800209657 /* Data */,
+				4C18BD392985DE8F00209657 /* Network */,
+				4C18BD362985DB8300209657 /* ViewModel */,
+				4C18BD2F2984895000209657 /* Models */,
 				4C18BCFB2984881200209657 /* AppDelegate.swift */,
 				4C18BCFD2984881200209657 /* SceneDelegate.swift */,
 				4C18BCFF2984881200209657 /* ViewController.swift */,
@@ -117,6 +140,7 @@
 			isa = PBXGroup;
 			children = (
 				4C18BD152984881300209657 /* QCMTests.swift */,
+				4C18BD3E2985E91100209657 /* QuestionsTests.swift */,
 			);
 			path = QCMTests;
 			sourceTree = "<group>";
@@ -128,6 +152,42 @@
 				4C18BD212984881300209657 /* QCMUITestsLaunchTests.swift */,
 			);
 			path = QCMUITests;
+			sourceTree = "<group>";
+		};
+		4C18BD2F2984895000209657 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				4C18BD3029848A1400209657 /* Question.swift */,
+				4C18BD322985DB5200209657 /* Choice.swift */,
+				4C18BD342985DB6900209657 /* Answer.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		4C18BD362985DB8300209657 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				4C18BD372985DB9300209657 /* Questions.swift */,
+				4C18BD4229867B4200209657 /* LoadingState.swift */,
+				4C18BD4429867B5B00209657 /* QuestionsProtocol.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		4C18BD392985DE8F00209657 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				4C18BD3A2985DEA100209657 /* Networking.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		4C18BD3C2985E5B800209657 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				4C18BD3D2985E5C400209657 /* data.json */,
+			);
+			path = Data;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -235,6 +295,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4C18BD0B2984881300209657 /* LaunchScreen.storyboard in Resources */,
+				4C18BD402985FE9600209657 /* data.json in Resources */,
 				4C18BD082984881300209657 /* Assets.xcassets in Resources */,
 				4C18BD032984881200209657 /* Main.storyboard in Resources */,
 			);
@@ -244,6 +305,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4C18BD412985FE9900209657 /* data.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -261,9 +323,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4C18BD332985DB5200209657 /* Choice.swift in Sources */,
+				4C18BD3129848A1400209657 /* Question.swift in Sources */,
+				4C18BD4329867B4200209657 /* LoadingState.swift in Sources */,
 				4C18BD002984881200209657 /* ViewController.swift in Sources */,
+				4C18BD3B2985DEA100209657 /* Networking.swift in Sources */,
+				4C18BD352985DB6900209657 /* Answer.swift in Sources */,
 				4C18BD062984881200209657 /* QCM.xcdatamodeld in Sources */,
+				4C18BD382985DB9300209657 /* Questions.swift in Sources */,
 				4C18BCFC2984881200209657 /* AppDelegate.swift in Sources */,
+				4C18BD4529867B5B00209657 /* QuestionsProtocol.swift in Sources */,
 				4C18BCFE2984881200209657 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -273,6 +342,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4C18BD162984881300209657 /* QCMTests.swift in Sources */,
+				4C18BD3F2985E91100209657 /* QuestionsTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
