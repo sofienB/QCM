@@ -52,8 +52,17 @@ final class ViewController: UIViewController {
         self.nextButton.setAttributedTitle(attributedText, for: .normal)
     }
     private func presentResult() {
+        guard let htmlContent = questions.answerToJson()?.toString()
+        else { return }
+        
+        let htmlBody = """
+            <html> <body style="background-color:#483d8b">
+            <pre> <code style="zoom: 2.5; color:#FFFFFF;font-size:20px;">
+            \(htmlContent)
+            </code> </pre> </body> </html>
+            """
         let webViewController = WebViewController()
-        webViewController.load(answer: (questions.answerToJson()?.toString())! )
+        webViewController.load(answer: htmlBody)
         self.present(webViewController, animated: true)
     }
     
@@ -194,7 +203,7 @@ extension ViewController: QuestionViewProtocol {
     
     func show(information: String) {
         let viewC = UIViewController()
-        viewC.view.backgroundColor = .systemBackground
+        viewC.view.backgroundColor = .darkslateblue
         
         let titleLbl = UILabel()
         titleLbl.text = NSLocalizedString("information", comment: "Information")
@@ -207,6 +216,7 @@ extension ViewController: QuestionViewProtocol {
         textView.text = information
         textView.font = .systemFont(ofSize: 25, weight: .semibold)
         textView.textColor = .label
+        textView.backgroundColor = .darkslateblue
         
         viewC.view.addSubview(titleLbl)
         viewC.view.addSubview(textView)

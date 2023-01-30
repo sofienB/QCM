@@ -9,7 +9,7 @@ import Foundation
 
 extension Data {
     func toString() -> String? {
-        if let string = String(data: self, encoding: String.Encoding.utf8) {
+        if let string = String(data: self, encoding: .utf8) {
            return string
         } else {
             print("Error : data cann't be converted")

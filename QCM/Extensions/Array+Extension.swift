@@ -20,7 +20,9 @@ extension Array where Element == Answer {
     func toJson() -> Data? {
         let json: Data?
         do {
-            json = try JSONEncoder().encode(self)
+            let encoder = JSONEncoder()
+            encoder.outputFormatting = .prettyPrinted
+            json = try encoder.encode(self)
             return json
         } catch {
             print(error)
