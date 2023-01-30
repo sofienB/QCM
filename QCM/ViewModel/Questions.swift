@@ -23,13 +23,17 @@ class Questions {
     
     // MARK: - Public properties
     public weak var delegate: QuestionsProtocol?
- 
+
+    public var total: Int { get { questions.count } }
+    
+    public var index: Int { get { iterator } }
+    
     public var isFinished: Bool {
-       iterator >= questions.count
+        iterator >= questions.count && answers.count == questions.count && !questions.isEmpty
     }
     
     public var nextQuestion: Question? {
-        isFinished ? nil : questions[iterator]
+        isFinished || iterator == questions.count ? nil : questions[iterator]
     }
     
     // MARK: - Public methods
@@ -78,12 +82,12 @@ class Questions {
         return true
     }
     
-    func toJson() -> Data? {
+    func answerToJson() -> Data? {
         return answers.toJson()
     }
     
     func toString() -> String? {
-        return toJson()?.toString()
+        return answerToJson()?.toString()
     }
 }
 
@@ -99,10 +103,6 @@ extension Questions {
     
     var questionsSetted: [Question] {
         get { questions }
-    }
-    
-    var iteratorState: Int {
-        get { iterator }
     }
 }
 

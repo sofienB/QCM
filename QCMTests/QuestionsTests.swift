@@ -228,7 +228,7 @@ final class QuestionsTests: XCTestCase, QuestionsProtocol {
         XCTAssertTrue(isAdded_2)
         
         // To Json
-        guard let jsonData = questions.toJson()
+        guard let jsonData = questions.answerToJson()
         else {
             XCTFail("Answers should not be nil")
             return
