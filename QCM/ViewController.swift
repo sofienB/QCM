@@ -8,6 +8,9 @@
 import UIKit
 
 final class ViewController: UIViewController {
+
+    private var questions = Questions()
+    private var spinner = SpinnerView()
     
     private var titleLbl: UILabel = {
         let label = UILabel()
@@ -17,10 +20,7 @@ final class ViewController: UIViewController {
         label.font = .systemFont(ofSize: 30, weight: .semibold)
         return label
     }()
-    
-    private var questions = Questions()
-    private var spinner = SpinnerView()
-    
+
     private var questionView = QuestionView()
     private lazy var nextButton: UIButton = {
         let button = UIButton(configuration: .bordered())
@@ -45,52 +45,6 @@ final class ViewController: UIViewController {
         questionView.delegate = self
     }
     
-    private func updateNextButton(title: String) {
-        let font = UIFont(name: "HelveticaNeue-Bold", size: 23)
-        let attributedText = NSAttributedString(string: title,
-                                                attributes: [NSAttributedString.Key.font: font!])
-        self.nextButton.setAttributedTitle(attributedText, for: .normal)
-    }
-    private func presentResult() {
-        guard let htmlContent = questions.answerToJson()?.toString()
-        else { return }
-        
-        let htmlBody = """
-            <html> <body style="background-color:#483d8b">
-            <pre> <code style="zoom: 2.5; color:#FFFFFF;font-size:20px;">
-            \(htmlContent)
-            </code> </pre> </body> </html>
-            """
-        let webViewController = WebViewController()
-        webViewController.load(answer: htmlBody)
-        self.present(webViewController, animated: true)
-    }
-    
-    func updateView() {
-        if questions.isFinished {
-            questionView.removeFromSuperview()
-            titleLbl.text = "🎉 " + NSLocalizedString("congratulation", comment: "Congratulation") + " 🎉"
-            updateNextButton(title:NSLocalizedString("show result", comment: "Show result"))
-            presentResult()
-            return
-        }
-        
-        guard let question = questions.nextQuestion
-        else { return }
-        
-        self.title = "QCM \(questions.index + 1)/\(questions.total)"
-        titleLbl.text = question.name
-        
-        questionView.update(question: question)
-        
-        // Update Next Button.
-        var isValid = false
-        if let answer = questionView.answer() {
-            isValid = questions.check(answer: answer)
-        }
-        nextButton.isEnabled = isValid
-    }
-    
     private func configureView() {
         self.view.addSubview(titleLbl)
         self.view.addSubview(questionView)
@@ -100,9 +54,8 @@ final class ViewController: UIViewController {
         configureConstraint()
         updateView()
     }
-
+    
     private func configureConstraint() {
-
         // Title
         titleLbl.centerX(inView: self.view,
                          topAnchor: self.view.safeAreaLayoutGuide.topAnchor,
@@ -125,6 +78,53 @@ final class ViewController: UIViewController {
                           leading: self.view.safeAreaLayoutGuide.leadingAnchor,
                           trailing: self.view.safeAreaLayoutGuide.trailingAnchor,
                           paddingBottom: 18, paddingRight: 18, height: 45)
+    }
+
+    // used to load answers when QCM is finished.
+    private func presentResult() {
+        guard let htmlContent = questions.answerToJson()?.toString()
+        else { return }
+        
+        let htmlBody = """
+            <html> <body style="background-color:#483d8b">
+            <pre> <code style="zoom: 2.5; color:#FFFFFF;font-size:20px;">
+            \(htmlContent)
+            </code> </pre> </body> </html>
+            """
+        let webViewController = WebViewController()
+        webViewController.load(answer: htmlBody)
+        self.present(webViewController, animated: true)
+    }
+    
+    private func updateNextButton(title: String) {
+        let font = UIFont(name: "HelveticaNeue-Bold", size: 23)
+        let attributedText = NSAttributedString(string: title,
+                                                attributes: [NSAttributedString.Key.font: font!])
+        self.nextButton.setAttributedTitle(attributedText, for: .normal)
+    }
+    
+    private func updateView() {
+        if questions.isFinished {
+            questionView.removeFromSuperview()
+            titleLbl.text = "🎉 " + NSLocalizedString("congratulation", comment: "Congratulation") + " 🎉"
+            updateNextButton(title:NSLocalizedString("show result", comment: "Show result"))
+            presentResult()
+            return
+        }
+        
+        guard let question = questions.nextQuestion
+        else { return }
+        
+        self.title = "QCM \(questions.index + 1)/\(questions.total)"
+        titleLbl.text = question.name
+        questionView.update(question: question)
+        
+        // Update Next Button.
+        var isValid = false
+        if let answer = questionView.answer() {
+            isValid = questions.check(answer: answer)
+        }
+        nextButton.isEnabled = isValid
     }
 
     @objc func nextAction() {

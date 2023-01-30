@@ -96,6 +96,5 @@ final class ChoiceView: UIView {
         self.backgroundColor = .QCMBlue.withAlphaComponent(0.35)
         layer.cornerRadius = 8
         layer.masksToBounds = true
-        //layer.borderWidth = 0.5
     }
 }

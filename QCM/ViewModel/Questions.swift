@@ -48,6 +48,7 @@ class Questions {
             switch response {
             case .success(let result):
                 self?.questions = result
+                self?.questions.sort()
                 self?.state = .success
             case .failure(let error):
                 self?.questions = []

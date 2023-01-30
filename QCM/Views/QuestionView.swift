@@ -67,6 +67,7 @@ final class QuestionView: UIView {
     
     func update(question: Question) {
         self.question = question
+        self.question?.choices.sort()
         questionLbl.text = question.question
     }
     

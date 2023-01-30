@@ -12,7 +12,7 @@ struct Question : Sort {
     let id: UInt!
     let name: String!
     var order: UInt8!
-    let choices: [Choice]!
+    var choices: [Choice]!
     let question: String!
     let multiple: Bool!
 }
