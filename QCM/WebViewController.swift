@@ -19,9 +19,7 @@ final class WebViewController: UIViewController {
         webView?.anchor(top: self.view.topAnchor,
                        bottom: self.view.bottomAnchor,
                        leading: self.view.leadingAnchor,
-                       trailing: self.view.trailingAnchor,
-                        width: self.view.frame.width,
-                        height: self.view.frame.height)
+                       trailing: self.view.trailingAnchor)
         webView?.loadHTMLString(content, baseURL: nil)
     }
     
