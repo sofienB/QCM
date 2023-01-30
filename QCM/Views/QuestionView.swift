@@ -18,7 +18,7 @@ final class QuestionView: UIView {
             
             for choice in question?.choices ?? [] {
                 let choiceLabel = ChoiceView(choice: choice)
-                choiceLabel.anchor(height: 70)
+                choiceLabel.anchor(height: 65)
                 choiceLabel.delegate = self
                 choiceLbls.append(choiceLabel)
                 container.addArrangedSubview(choiceLabel)
@@ -82,9 +82,8 @@ final class QuestionView: UIView {
 }
 
 protocol ChoiceViewProtocol {
-    func didUpdate(state: Bool)
-    func show(information: String)
-
+    func didUpdate(choiceId: UInt)
+    func show(choiceId: UInt)
 }
 
 protocol QuestionViewProtocol {
@@ -93,13 +92,28 @@ protocol QuestionViewProtocol {
 }
 
 extension QuestionView: ChoiceViewProtocol {
-    func didUpdate(state: Bool) {
+    func didUpdate(choiceId: UInt) {
+        // if multi selection is no enabled,
+        // remove other selected choices .
+        if let question, !question.multiple {
+            choiceLbls.forEach {
+                if $0.choiceId != choiceId {
+                    $0.isSelected = false
+                }
+            }
+        }
+        // Get answer and send it.
         if let answer = answer() {
             delegate?.didUpdate(answer: answer)
         }
     }
     
-    func show(information: String) {
+    func show(choiceId: UInt) {
+        guard let information = question?.choices
+            .compactMap({ $0.id == choiceId ? $0.description : nil })
+            .first
+        else { return }
+        
         delegate?.show(information: information)
     }
 }

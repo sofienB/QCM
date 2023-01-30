@@ -8,14 +8,12 @@
 import UIKit
 
 final class ChoiceView: UIView {
-    private(set) lazy var isSelected: Bool = false {
+    lazy var isSelected: Bool = false {
         didSet { badge.hide = !isSelected }
     }
     var choiceId: UInt = 0
     var delegate: ChoiceViewProtocol?
     
-    private var informationData: String?
-
     private lazy var label: UILabel = {
         let label = UILabel()
         label.textColor = .label
@@ -62,10 +60,10 @@ final class ChoiceView: UIView {
         configureView()
         
         choiceId = choice.id
-        badge.hide = !isSelected
+        isSelected = false
         label.text = choice.name
         information.isHidden = choice.description == nil
-        informationData = choice.description
+        
         let gesture = UITapGestureRecognizer(target: self, action:  #selector(self.onClick))
         addGestureRecognizer(gesture)
     }
@@ -87,19 +85,17 @@ final class ChoiceView: UIView {
     
     @objc func onClick(sender : UITapGestureRecognizer) {
         isSelected = !isSelected
-        delegate?.didUpdate(state: isSelected)
+        delegate?.didUpdate(choiceId: choiceId)
     }
     
     @objc func showInformation(sender : UITapGestureRecognizer) {
-        if let informationData {
-            delegate?.show(information: informationData)
-        }
+        delegate?.show(choiceId: choiceId)
     }
     
     private func configureView() {
-        self.backgroundColor = .QCMBlue.withAlphaComponent(0.2)
-        layer.cornerRadius = 5
+        self.backgroundColor = .QCMBlue.withAlphaComponent(0.35)
+        layer.cornerRadius = 8
         layer.masksToBounds = true
-        layer.borderWidth = 0.5
+        //layer.borderWidth = 0.5
     }
 }

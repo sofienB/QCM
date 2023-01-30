@@ -69,7 +69,7 @@ class Questions {
         else { return false }
         
         return question.multiple && answer.choices.count > 1
-            || !question.multiple && answer.choices.count > 0
+            || !question.multiple && answer.choices.count == 1
     }
     
     // return true if answer is added, else return false.
